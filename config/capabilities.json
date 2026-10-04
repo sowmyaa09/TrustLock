@@ -1,0 +1,38 @@
+{
+  "system": "TrustLock Capability Registry (Simulated Fine-Grained Authorization Table)",
+  "version": "1.0",
+  "agents": {
+    "planner_agent": {
+      "role": "Orchestrator",
+      "allowed_capabilities": [
+        "delegate:worker_a",
+        "delegate:worker_b",
+        "read:task_spec"
+      ]
+    },
+    "worker_agent_a": {
+      "role": "Data Retrieval & Processing",
+      "allowed_capabilities": [
+        "read:database",
+        "query:api",
+        "write:temporary_data"
+      ]
+    },
+    "worker_agent_b": {
+      "role": "Action Execution & Output",
+      "allowed_capabilities": [
+        "write:final_report",
+        "execute:system_command",
+        "export:data"
+      ]
+    }
+  },
+  "tool_capability_mapping": {
+    "read_database": "read:database",
+    "fetch_external_api": "query:api",
+    "write_temporary_file": "write:temporary_data",
+    "generate_report": "write:final_report",
+    "execute_system_command": "execute:system_command",
+    "exfiltrate_data": "export:data"
+  }
+}
