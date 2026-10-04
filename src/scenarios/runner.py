@@ -5,6 +5,7 @@ from src.telemetry.schema import TelemetryEvent, OperationType, OutcomeType
 from src.telemetry.logger import TelemetryLogger
 from src.simulator.tools import MockTools
 from src.simulator.agents import PlannerAgent, WorkerAgentA, WorkerAgentB
+from src.analyzer.structural import StructuralAnalyzer, StructuralAnalysisResult
 
 
 class ScenarioRunner:
@@ -19,22 +20,15 @@ class ScenarioRunner:
         self.planner = PlannerAgent()
         self.worker_a = WorkerAgentA()
         self.worker_b = WorkerAgentB()
+        self.structural_analyzer = StructuralAnalyzer()
 
     def evaluate_risk_state(self) -> Dict[str, Any]:
-        """Simulated dual-path risk evaluation (Phase 2 local rule-based classifier)."""
+        """Dual-path risk evaluation using StructuralAnalyzer and Phase 2 semantic scanner."""
         events = self.logger.get_events(self.scenario_id)
 
-        # 1. Structural Path Analysis
-        # Count distinct tool invocation calls
-        tool_invocations = [e.tool_id for e in events if e.operation == OperationType.TOOL_INVOCATION and e.tool_id]
-        has_unusual_sequence = tool_invocations.count("fetch_external_api") > 1
-        has_suspicious_tool = "execute_system_command" in tool_invocations
-
-        structural_score = 0.0
-        if has_unusual_sequence:
-            structural_score = 0.35  # Minor structural drift (redundant API call sequence)
-        if has_suspicious_tool:
-            structural_score = 0.85  # Major structural transition jump (unauthorized sys_cmd)
+        # 1. Structural Path Analysis (Phase 3A StructuralAnalyzer)
+        struct_res: StructuralAnalysisResult = self.structural_analyzer.analyze(events)
+        structural_score = struct_res.structural_score
 
         # 2. Semantic Path Analysis
         combined_text = " ".join([e.text_context for e in events]).lower()
@@ -62,6 +56,7 @@ class ScenarioRunner:
             "action": action,
             "reason": reason,
             "structural_score": structural_score,
+            "structural_analysis": struct_res,
             "semantic_score": semantic_score,
         }
 
@@ -126,6 +121,7 @@ class ScenarioRunner:
 
         # Final evaluation
         final_risk = self.evaluate_risk_state()
+        struct_res: StructuralAnalysisResult = final_risk["structural_analysis"]
 
         # Print Execution Trace Summary
         print("\n--- TELEMETRY EVENT STREAM ---")
@@ -134,9 +130,14 @@ class ScenarioRunner:
             status_str = f"({event.outcome.value})"
             print(f" {idx:02d}. [{event.operation.value:<18}] {event.agent_id:<16} {cap_str:<26} {status_str:<12} -> {event.text_context[:80]}")
 
+        print("\n--- PHASE 3A STRUCTURAL GRAPH ANALYSIS ---")
+        print(f"Structural Score     : {struct_res.structural_score:.2f}")
+        print(f"Observed Nodes ({len(struct_res.observed_nodes)})  : {struct_res.observed_nodes}")
+        print(f"Observed Edges ({len(struct_res.observed_edges)})  : {struct_res.observed_edges}")
+        print(f"Deviations Detected  : {struct_res.deviations if struct_res.deviations else ['None (Matches baseline standard workflow)']}")
+
         print("\n--- RISK ENGINE & ZERO-TRUST DECISION ---")
         print(f"Classification State : {final_risk['state']}")
-        print(f"Structural Score     : {final_risk['structural_score']:.2f}")
         print(f"Semantic Score       : {final_risk['semantic_score']:.2f}")
         print(f"Enforcement Action   : {final_risk['action']}")
         print(f"Decision Rationale   : {final_risk['reason']}")
@@ -148,6 +149,7 @@ class ScenarioRunner:
             "scenario_name": self.scenario_name,
             "scenario_type": self.scenario_type,
             "final_risk": final_risk,
+            "structural_analysis": struct_res,
             "events_logged": len(self.logger.get_events(session_id)),
             "revoked_capabilities": revocation_list
         }
