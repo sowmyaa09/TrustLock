@@ -1,0 +1,23 @@
+{
+  "dataset_name": "TrustLock Controlled Telemetry Dataset",
+  "generation_timestamp": "2026-10-09T06:28:56.326646+00:00",
+  "source": "controlled local simulator",
+  "note": "Controlled ground-truth security telemetry traces collected from the TrustLock 3-agent M2M simulation.",
+  "total_traces": 3,
+  "total_events": 36,
+  "class_labels": [
+    "NORMAL",
+    "BENIGN_DRIFT",
+    "SUSPICIOUS_EXPLOITATION"
+  ],
+  "events_per_class": {
+    "NORMAL": 11,
+    "BENIGN_DRIFT": 14,
+    "SUSPICIOUS_EXPLOITATION": 11
+  },
+  "scenario_descriptions": {
+    "NORMAL": "Legitimate workflow with expected agent delegation and tool usage.",
+    "BENIGN_DRIFT": "Safe workflow variation with structural drift but zero malicious intent.",
+    "SUSPICIOUS_EXPLOITATION": "Indirect prompt injection & unauthorized tool invocation attack."
+  }
+}
