@@ -1,6 +1,6 @@
 {
   "dataset_name": "TrustLock Controlled Telemetry Dataset",
-  "generation_timestamp": "2026-10-09T06:28:56.326646+00:00",
+  "generation_timestamp": "2026-10-09T07:18:15.499656+00:00",
   "source": "controlled local simulator",
   "note": "Controlled ground-truth security telemetry traces collected from the TrustLock 3-agent M2M simulation.",
   "total_traces": 3,
@@ -14,6 +14,124 @@
     "NORMAL": 11,
     "BENIGN_DRIFT": 14,
     "SUSPICIOUS_EXPLOITATION": 11
+  },
+  "graph_summaries": {
+    "NORMAL": {
+      "session_id": "session-scenario-a",
+      "scenario_label": "NORMAL",
+      "node_count": 6,
+      "edge_count": 5,
+      "agent_count": 3,
+      "tool_count": 3,
+      "blocked_interaction_count": 0,
+      "blocked_edges": [],
+      "unique_interaction_types": [
+        "AGENT_MESSAGE",
+        "TOOL_INVOCATION",
+        "TOOL_RESPONSE"
+      ],
+      "observed_transitions": [
+        [
+          "planner_agent",
+          "worker_agent_a"
+        ],
+        [
+          "planner_agent",
+          "worker_agent_b"
+        ],
+        [
+          "worker_agent_a",
+          "read_database"
+        ],
+        [
+          "worker_agent_a",
+          "fetch_external_api"
+        ],
+        [
+          "worker_agent_b",
+          "write_report"
+        ]
+      ]
+    },
+    "BENIGN_DRIFT": {
+      "session_id": "session-scenario-b",
+      "scenario_label": "BENIGN_DRIFT",
+      "node_count": 7,
+      "edge_count": 5,
+      "agent_count": 4,
+      "tool_count": 3,
+      "blocked_interaction_count": 0,
+      "blocked_edges": [],
+      "unique_interaction_types": [
+        "AGENT_MESSAGE",
+        "TOOL_INVOCATION",
+        "TOOL_RESPONSE"
+      ],
+      "observed_transitions": [
+        [
+          "planner_agent",
+          "worker_agent_a"
+        ],
+        [
+          "planner_agent",
+          "worker_agent_b"
+        ],
+        [
+          "worker_agent_a",
+          "read_database"
+        ],
+        [
+          "worker_agent_a",
+          "fetch_external_api"
+        ],
+        [
+          "worker_agent_b",
+          "write_report"
+        ]
+      ]
+    },
+    "SUSPICIOUS_EXPLOITATION": {
+      "session_id": "session-scenario-c",
+      "scenario_label": "SUSPICIOUS_EXPLOITATION",
+      "node_count": 6,
+      "edge_count": 5,
+      "agent_count": 3,
+      "tool_count": 3,
+      "blocked_interaction_count": 1,
+      "blocked_edges": [
+        [
+          "worker_agent_b",
+          "execute_system_command"
+        ]
+      ],
+      "unique_interaction_types": [
+        "AGENT_MESSAGE",
+        "TOOL_INVOCATION",
+        "TOOL_RESPONSE"
+      ],
+      "observed_transitions": [
+        [
+          "planner_agent",
+          "worker_agent_a"
+        ],
+        [
+          "planner_agent",
+          "worker_agent_b"
+        ],
+        [
+          "worker_agent_a",
+          "read_database"
+        ],
+        [
+          "worker_agent_b",
+          "execute_system_command"
+        ],
+        [
+          "worker_agent_b",
+          "write_report"
+        ]
+      ]
+    }
   },
   "scenario_descriptions": {
     "NORMAL": "Legitimate workflow with expected agent delegation and tool usage.",

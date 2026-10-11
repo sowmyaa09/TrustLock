@@ -1,0 +1,163 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {
+    "session_id": "session-scenario-a",
+    "scenario_label": "NORMAL"
+  },
+  "nodes": [
+    {
+      "node_id": "planner_agent",
+      "node_type": "agent",
+      "label": "planner_agent",
+      "is_blocked": false,
+      "id": "planner_agent"
+    },
+    {
+      "node_id": "worker_agent_a",
+      "node_type": "agent",
+      "label": "worker_agent_a",
+      "is_blocked": false,
+      "id": "worker_agent_a"
+    },
+    {
+      "node_id": "read_database",
+      "node_type": "tool",
+      "label": "read_database",
+      "is_blocked": false,
+      "id": "read_database"
+    },
+    {
+      "node_id": "fetch_external_api",
+      "node_type": "tool",
+      "label": "fetch_external_api",
+      "is_blocked": false,
+      "id": "fetch_external_api"
+    },
+    {
+      "node_id": "worker_agent_b",
+      "node_type": "agent",
+      "label": "worker_agent_b",
+      "is_blocked": false,
+      "id": "worker_agent_b"
+    },
+    {
+      "node_id": "write_report",
+      "node_type": "tool",
+      "label": "write_report",
+      "is_blocked": false,
+      "id": "write_report"
+    }
+  ],
+  "edges": [
+    {
+      "source": "planner_agent",
+      "target": "worker_agent_a",
+      "weight": 1,
+      "operations": [
+        "AGENT_MESSAGE"
+      ],
+      "requested_capabilities": [
+        "delegate:worker_a"
+      ],
+      "granted_capabilities": [
+        true
+      ],
+      "has_blocked": false,
+      "outcomes": [
+        "SUCCESS"
+      ],
+      "timestamp_first": "2026-10-11T12:34:42.621210+00:00",
+      "timestamp_last": "2026-10-11T12:34:42.621210+00:00"
+    },
+    {
+      "source": "planner_agent",
+      "target": "worker_agent_b",
+      "weight": 1,
+      "operations": [
+        "AGENT_MESSAGE"
+      ],
+      "requested_capabilities": [
+        "delegate:worker_b"
+      ],
+      "granted_capabilities": [
+        true
+      ],
+      "has_blocked": false,
+      "outcomes": [
+        "SUCCESS"
+      ],
+      "timestamp_first": "2026-10-11T12:34:42.621210+00:00",
+      "timestamp_last": "2026-10-11T12:34:42.621210+00:00"
+    },
+    {
+      "source": "worker_agent_a",
+      "target": "read_database",
+      "weight": 2,
+      "operations": [
+        "TOOL_INVOCATION",
+        "TOOL_RESPONSE"
+      ],
+      "requested_capabilities": [
+        "read:database"
+      ],
+      "granted_capabilities": [
+        true,
+        true
+      ],
+      "has_blocked": false,
+      "outcomes": [
+        "SUCCESS",
+        "SUCCESS"
+      ],
+      "timestamp_first": "2026-10-11T12:34:42.621210+00:00",
+      "timestamp_last": "2026-10-11T12:34:42.621210+00:00"
+    },
+    {
+      "source": "worker_agent_a",
+      "target": "fetch_external_api",
+      "weight": 2,
+      "operations": [
+        "TOOL_INVOCATION",
+        "TOOL_RESPONSE"
+      ],
+      "requested_capabilities": [
+        "query:api"
+      ],
+      "granted_capabilities": [
+        true,
+        true
+      ],
+      "has_blocked": false,
+      "outcomes": [
+        "SUCCESS",
+        "SUCCESS"
+      ],
+      "timestamp_first": "2026-10-11T12:34:42.621210+00:00",
+      "timestamp_last": "2026-10-11T12:34:42.621210+00:00"
+    },
+    {
+      "source": "worker_agent_b",
+      "target": "write_report",
+      "weight": 2,
+      "operations": [
+        "TOOL_INVOCATION",
+        "TOOL_RESPONSE"
+      ],
+      "requested_capabilities": [
+        "write:final_report"
+      ],
+      "granted_capabilities": [
+        true,
+        true
+      ],
+      "has_blocked": false,
+      "outcomes": [
+        "SUCCESS",
+        "SUCCESS"
+      ],
+      "timestamp_first": "2026-10-11T12:34:42.621210+00:00",
+      "timestamp_last": "2026-10-11T12:34:42.621210+00:00"
+    }
+  ]
+}

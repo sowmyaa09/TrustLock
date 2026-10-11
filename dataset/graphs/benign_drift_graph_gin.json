@@ -1,0 +1,90 @@
+{
+  "scenario_label": "BENIGN_DRIFT",
+  "y": 1,
+  "node_mapping": {
+    "fetch_external_api": 0,
+    "planner_agent": 1,
+    "read_database": 2,
+    "reprompt_engine": 3,
+    "worker_agent_a": 4,
+    "worker_agent_b": 5,
+    "write_report": 6
+  },
+  "x": [
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0
+    ]
+  ],
+  "edge_index": [
+    [
+      1,
+      1,
+      4,
+      4,
+      5
+    ],
+    [
+      4,
+      5,
+      2,
+      0,
+      6
+    ]
+  ],
+  "edge_attr": [
+    [
+      1.0,
+      0.0
+    ],
+    [
+      1.0,
+      0.0
+    ],
+    [
+      2.0,
+      0.0
+    ],
+    [
+      4.0,
+      0.0
+    ],
+    [
+      2.0,
+      0.0
+    ]
+  ],
+  "num_nodes": 7,
+  "num_edges": 5
+}

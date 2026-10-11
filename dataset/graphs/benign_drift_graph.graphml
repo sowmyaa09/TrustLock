@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d15" for="edge" attr.name="timestamp_last" attr.type="string" />
+  <key id="d14" for="edge" attr.name="timestamp_first" attr.type="string" />
+  <key id="d13" for="edge" attr.name="outcomes" attr.type="string" />
+  <key id="d12" for="edge" attr.name="has_blocked" attr.type="boolean" />
+  <key id="d11" for="edge" attr.name="granted_capabilities" attr.type="string" />
+  <key id="d10" for="edge" attr.name="requested_capabilities" attr.type="string" />
+  <key id="d9" for="edge" attr.name="operations" attr.type="string" />
+  <key id="d8" for="edge" attr.name="weight" attr.type="long" />
+  <key id="d7" for="edge" attr.name="target" attr.type="string" />
+  <key id="d6" for="edge" attr.name="source" attr.type="string" />
+  <key id="d5" for="node" attr.name="is_blocked" attr.type="boolean" />
+  <key id="d4" for="node" attr.name="label" attr.type="string" />
+  <key id="d3" for="node" attr.name="node_type" attr.type="string" />
+  <key id="d2" for="node" attr.name="node_id" attr.type="string" />
+  <key id="d1" for="graph" attr.name="scenario_label" attr.type="string" />
+  <key id="d0" for="graph" attr.name="session_id" attr.type="string" />
+  <graph edgedefault="directed">
+    <node id="planner_agent">
+      <data key="d2">planner_agent</data>
+      <data key="d3">agent</data>
+      <data key="d4">planner_agent</data>
+      <data key="d5">False</data>
+    </node>
+    <node id="worker_agent_a">
+      <data key="d2">worker_agent_a</data>
+      <data key="d3">agent</data>
+      <data key="d4">worker_agent_a</data>
+      <data key="d5">False</data>
+    </node>
+    <node id="read_database">
+      <data key="d2">read_database</data>
+      <data key="d3">tool</data>
+      <data key="d4">read_database</data>
+      <data key="d5">False</data>
+    </node>
+    <node id="fetch_external_api">
+      <data key="d2">fetch_external_api</data>
+      <data key="d3">tool</data>
+      <data key="d4">fetch_external_api</data>
+      <data key="d5">False</data>
+    </node>
+    <node id="reprompt_engine">
+      <data key="d2">reprompt_engine</data>
+      <data key="d3">agent</data>
+      <data key="d4">reprompt_engine</data>
+      <data key="d5">False</data>
+    </node>
+    <node id="worker_agent_b">
+      <data key="d2">worker_agent_b</data>
+      <data key="d3">agent</data>
+      <data key="d4">worker_agent_b</data>
+      <data key="d5">False</data>
+    </node>
+    <node id="write_report">
+      <data key="d2">write_report</data>
+      <data key="d3">tool</data>
+      <data key="d4">write_report</data>
+      <data key="d5">False</data>
+    </node>
+    <edge source="planner_agent" target="worker_agent_a">
+      <data key="d6">planner_agent</data>
+      <data key="d7">worker_agent_a</data>
+      <data key="d8">1</data>
+      <data key="d9">["AGENT_MESSAGE"]</data>
+      <data key="d10">["delegate:worker_a"]</data>
+      <data key="d11">[true]</data>
+      <data key="d12">False</data>
+      <data key="d13">["SUCCESS"]</data>
+      <data key="d14">2026-10-11T12:34:43.048258+00:00</data>
+      <data key="d15">2026-10-11T12:34:43.048258+00:00</data>
+    </edge>
+    <edge source="planner_agent" target="worker_agent_b">
+      <data key="d6">planner_agent</data>
+      <data key="d7">worker_agent_b</data>
+      <data key="d8">1</data>
+      <data key="d9">["AGENT_MESSAGE"]</data>
+      <data key="d10">["delegate:worker_b"]</data>
+      <data key="d11">[true]</data>
+      <data key="d12">False</data>
+      <data key="d13">["SUCCESS"]</data>
+      <data key="d14">2026-10-11T12:34:43.048258+00:00</data>
+      <data key="d15">2026-10-11T12:34:43.048258+00:00</data>
+    </edge>
+    <edge source="worker_agent_a" target="read_database">
+      <data key="d6">worker_agent_a</data>
+      <data key="d7">read_database</data>
+      <data key="d8">2</data>
+      <data key="d9">["TOOL_INVOCATION", "TOOL_RESPONSE"]</data>
+      <data key="d10">["read:database"]</data>
+      <data key="d11">[true, true]</data>
+      <data key="d12">False</data>
+      <data key="d13">["SUCCESS", "SUCCESS"]</data>
+      <data key="d14">2026-10-11T12:34:43.048258+00:00</data>
+      <data key="d15">2026-10-11T12:34:43.048258+00:00</data>
+    </edge>
+    <edge source="worker_agent_a" target="fetch_external_api">
+      <data key="d6">worker_agent_a</data>
+      <data key="d7">fetch_external_api</data>
+      <data key="d8">4</data>
+      <data key="d9">["TOOL_INVOCATION", "TOOL_RESPONSE"]</data>
+      <data key="d10">["query:api"]</data>
+      <data key="d11">[true, true, true, true]</data>
+      <data key="d12">False</data>
+      <data key="d13">["SUCCESS", "SUCCESS", "SUCCESS", "SUCCESS"]</data>
+      <data key="d14">2026-10-11T12:34:43.048258+00:00</data>
+      <data key="d15">2026-10-11T12:34:43.048258+00:00</data>
+    </edge>
+    <edge source="worker_agent_b" target="write_report">
+      <data key="d6">worker_agent_b</data>
+      <data key="d7">write_report</data>
+      <data key="d8">2</data>
+      <data key="d9">["TOOL_INVOCATION", "TOOL_RESPONSE"]</data>
+      <data key="d10">["write:final_report"]</data>
+      <data key="d11">[true, true]</data>
+      <data key="d12">False</data>
+      <data key="d13">["SUCCESS", "SUCCESS"]</data>
+      <data key="d14">2026-10-11T12:34:43.048258+00:00</data>
+      <data key="d15">2026-10-11T12:34:43.048258+00:00</data>
+    </edge>
+    <data key="d0">session-scenario-b</data>
+    <data key="d1">BENIGN_DRIFT</data>
+  </graph>
+</graphml>

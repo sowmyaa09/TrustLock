@@ -1,4 +1,6 @@
-# TrustLock Minimal Review 1 Prototype Dependencies
+# TrustLock Review 1 Prototype Dependencies
 fastapi>=0.100.0
 uvicorn>=0.20.0
 pydantic>=2.0.0
+networkx>=3.0
+matplotlib>=3.7.0
