@@ -4,9 +4,9 @@
 
 ---
 
-## 🎯 Review 1 Prototype Overview
+## 🎯 Project Overview
 
-TrustLock is a Zero-Trust security monitoring framework designed for multi-agent workflows. It provides real-time telemetry extraction, dual-path structural and semantic anomaly analysis, neuro-symbolic risk state evaluation, and dynamic fine-grained capability revocation.
+TrustLock is a Zero-Trust security monitoring framework designed for multi-agent Machine-to-Machine (M2M) workflows. It provides real-time telemetry extraction, dual-path structural and semantic anomaly analysis, neuro-symbolic risk state evaluation, and dynamic fine-grained capability revocation.
 
 ### Core Risk States Evaluated:
 1. **`NORMAL`**: Standard expected M2M interaction. Allowed to proceed.
@@ -147,10 +147,21 @@ python -m src.graph.test_graph
 
 ## 📋 Project Roadmap
 
-- [x] **Phase 1: Foundation Setup & Telemetry Schema** (Completed)
-- [x] **Phase 2: 3-Agent Simulator & Test Scenarios** (Completed)
-- [x] **Phase 3A: Structural Graph Analyzer** (Completed)
-- [x] **Controlled Telemetry Dataset Pipeline** (Completed)
-- [x] **Dynamic M2M Interaction Graph & Visualizer** (Completed)
-- [ ] **Phase 3B: Semantic Analyzer & Neuro-Symbolic Engine**
-- [ ] **Phase 4: Dashboard UI & Demonstration Integration**
+### Completed Milestones
+- [x] Foundation Setup and Telemetry Schema
+- [x] Multi-Agent Simulator and Test Scenarios
+- [x] Structural Graph Analyzer
+- [x] Controlled Telemetry Dataset Pipeline
+- [x] Dynamic M2M Interaction Graph and Visualization
+- [x] GIN-Compatible Graph Representation
+
+### Remaining Work
+- [ ] Implement and evaluate the actual GIN model
+- [ ] Expand the controlled telemetry dataset
+- [ ] Implement a dedicated semantic analysis path
+- [ ] Develop and evaluate neuro-symbolic fusion
+- [ ] Strengthen fine-grained authorization and capability enforcement
+- [ ] Integrate and evaluate additional security workloads
+- [ ] Conduct ablation studies and quantitative evaluation
+- [ ] Measure detection latency, revocation latency, WCR and CSR
+- [ ] Complete the audit interface, documentation and final report

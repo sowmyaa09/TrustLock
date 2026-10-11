@@ -74,8 +74,8 @@
       "outcomes": [
         "SUCCESS"
       ],
-      "timestamp_first": "2026-10-11T12:34:43.048258+00:00",
-      "timestamp_last": "2026-10-11T12:34:43.048258+00:00"
+      "timestamp_first": "2026-10-11T14:13:17.985475+00:00",
+      "timestamp_last": "2026-10-11T14:13:17.985475+00:00"
     },
     {
       "source": "planner_agent",
@@ -94,8 +94,8 @@
       "outcomes": [
         "SUCCESS"
       ],
-      "timestamp_first": "2026-10-11T12:34:43.048258+00:00",
-      "timestamp_last": "2026-10-11T12:34:43.048258+00:00"
+      "timestamp_first": "2026-10-11T14:13:17.985475+00:00",
+      "timestamp_last": "2026-10-11T14:13:17.985475+00:00"
     },
     {
       "source": "worker_agent_a",
@@ -117,8 +117,8 @@
         "SUCCESS",
         "SUCCESS"
       ],
-      "timestamp_first": "2026-10-11T12:34:43.048258+00:00",
-      "timestamp_last": "2026-10-11T12:34:43.048258+00:00"
+      "timestamp_first": "2026-10-11T14:13:17.985475+00:00",
+      "timestamp_last": "2026-10-11T14:13:17.985475+00:00"
     },
     {
       "source": "worker_agent_a",
@@ -144,8 +144,8 @@
         "SUCCESS",
         "SUCCESS"
       ],
-      "timestamp_first": "2026-10-11T12:34:43.048258+00:00",
-      "timestamp_last": "2026-10-11T12:34:43.048258+00:00"
+      "timestamp_first": "2026-10-11T14:13:17.985475+00:00",
+      "timestamp_last": "2026-10-11T14:13:17.985475+00:00"
     },
     {
       "source": "worker_agent_b",
@@ -167,8 +167,8 @@
         "SUCCESS",
         "SUCCESS"
       ],
-      "timestamp_first": "2026-10-11T12:34:43.048258+00:00",
-      "timestamp_last": "2026-10-11T12:34:43.048258+00:00"
+      "timestamp_first": "2026-10-11T14:13:17.985475+00:00",
+      "timestamp_last": "2026-10-11T14:13:17.985475+00:00"
     }
   ]
 }
